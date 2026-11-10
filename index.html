@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Random Task Spinner</title>
+  <meta name="description" content="Add your tasks, spin the wheel, and let it pick what to work on next." />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="app">
+    <header class="app-header">
+      <h1>Random Task Spinner</h1>
+      <p class="subtitle">Can't decide what to do next? Add your tasks and let the wheel choose.</p>
+    </header>
+
+    <div class="layout">
+      <!-- Wheel -->
+      <section class="wheel-section" aria-label="Spinning wheel">
+        <div class="wheel-wrap">
+          <div class="pointer" aria-hidden="true"></div>
+          <div class="wheel-disc">
+            <canvas id="wheel" width="1000" height="1000" aria-hidden="true"></canvas>
+          </div>
+          <button id="spinBtn" class="spin-btn" type="button">Spin</button>
+        </div>
+
+        <div id="result" class="result" role="status" aria-live="polite">
+          Add a few tasks to get started.
+        </div>
+      </section>
+
+      <!-- Task panel -->
+      <section class="panel" aria-label="Your tasks">
+        <form id="taskForm" class="task-form" autocomplete="off">
+          <input
+            id="taskInput"
+            type="text"
+            maxlength="40"
+            placeholder="Enter a task, e.g. Read 20 pages"
+            aria-label="New task"
+          />
+          <button type="submit" class="btn btn-primary">Add</button>
+        </form>
+        <p id="formError" class="form-error" role="alert"></p>
+
+        <div class="panel-header">
+          <h2>Tasks <span id="taskCount" class="count">0</span></h2>
+          <button id="resetBtn" type="button" class="btn btn-ghost">Reset</button>
+        </div>
+
+        <p id="emptyMessage" class="empty">No tasks yet. Add your first one above ✨</p>
+        <ul id="taskList" class="task-list"></ul>
+      </section>
+    </div>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
